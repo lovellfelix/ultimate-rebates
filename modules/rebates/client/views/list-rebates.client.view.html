@@ -1,0 +1,40 @@
+<section data-ng-controller="RebatesController" data-ng-init="find()">
+
+
+    <md-content>
+    <md-list>
+
+      <md-subheader class="md-no-sticky">{{rebates.length}} line item</md-subheader>
+
+      <md-list-item class="md-3-line" ng-repeat="rebate in rebates">
+   <!-- <img ng-src="http://images.sahcdn.com/images/merchantlogos/travelocity.jpg" class="img-thumbnail user-profile-picture" alt="{{item.who}}" /> -->
+   <div class="md-list-item-text">
+     <h3><a data-ng-href="/#!/rebates/{{rebate._id}}">{{ rebate.title }}</a></h3>
+     <h4>{{ rebate.affiliate }}</h4>
+     <p>{{ rebate.caption }}</p>
+
+     <span data-ng-bind="rebate.expire | date:'MM/dd/yyyy'"></span>
+     <hr />
+
+   </div>
+ </md-list-item>
+
+    </md-list>
+    <!-- <div class="list-group">
+        <a data-ng-repeat="rebate in rebates" data-ng-href="/#!/rebates/{{rebate._id}}" class="list-group-item">
+          <h4 class="list-group-item-heading" data-ng-bind="rebate.title"></h4>
+          <h4 class="list-group-item-heading" data-ng-bind="rebate.affiliate"></h4>
+          <h4 class="list-group-item-heading" data-ng-bind="rebate.discount"></h4>
+          <span class="list-group-item-heading" data-ng-bind="rebate.caption"></span>
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="rebate.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="rebate.user.displayName"></span>
+			</small>
+        </a>
+    </div> -->
+    <div class="alert alert-warning text-center" data-ng-hide="!rebates.$resolved || rebates.length">
+    	No Rebates yet, why don't you <a href="/#!/rebates/create">create one</a>?
+    </div>
+</section>
