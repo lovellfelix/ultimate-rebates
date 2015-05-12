@@ -87,7 +87,9 @@ exports.list = function(req, res) { Rebate.find().sort('-created').populate('use
 /**
  * Rebate middleware
  */
-exports.rebateByID = function(req, res, next, id) { Rebate.findById(id).populate('user', 'displayName').exec(function(err, rebate) {
+exports.rebateByID = function(req, res, next, id) { Rebate.findById(id).populate('user', 'displayName')
+																										.populate('affiliate', 'name')
+																										.populate('category', 'name').exec(function(err, rebate) {
 		if (err) return next(err);
 		if (! rebate) return next(new Error('Failed to load Rebate ' + id));
 		req.rebate = rebate ;

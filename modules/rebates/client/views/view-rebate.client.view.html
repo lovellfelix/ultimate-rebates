@@ -1,7 +1,8 @@
 <section data-ng-controller="RebatesController" data-ng-init="findOne()">
 	<div class="page-header">
 		<h1 data-ng-bind="rebate.title"></h1>
-		<span data-ng-bind="rebate.affiliate"></span>
+		<span data-ng-bind="rebate.affiliate.name"></span>
+		<span data-ng-bind="rebate.category.name"></span>
 		<span data-ng-bind="rebate.link"></span>
 		<span data-ng-bind="rebate.description"></span>
 	</div>

@@ -56,6 +56,8 @@
                     <label class="col-sm-2 control-label" for="textinput">Category</label>
                     <div class="col-sm-4">
                       <input type="text" data-ng-model="rebate.category" class="form-control" placeholder="Category" required>
+                      <select data-ng-model="category" class="form-control" id="category" ng-options="item._id as item.name for item in categories" placeholder="Category" required></select>
+
 
                     </div>
 

@@ -1,9 +1,12 @@
 'use strict';
 
 // Rebates controller
-angular.module('rebates').controller('RebatesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Rebates', 'Affiliates',
-	function($scope, $stateParams, $location, Authentication, Rebates, Affiliates ) {
+angular.module('rebates').controller('RebatesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Rebates', 'Affiliates','Categories',
+	function($scope, $stateParams, $location, Authentication, Rebates, Affiliates, Categories ) {
 		$scope.authentication = Authentication;
+		$scope.affiliates = Affiliates.query();
+		$scope.categories = Categories.query();
+
 
 		// Create new Rebate
 		$scope.create = function() {
@@ -109,11 +112,6 @@ $scope.format = $scope.formats[1];
 $scope.selected = undefined;
 //$scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 
-
-// Find a list of Rebates
-$scope.affiliates = function() {
-	$scope.affiliates = Affiliates.query();
-};
 
 
 	}

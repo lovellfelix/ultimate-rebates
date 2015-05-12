@@ -21,18 +21,32 @@ var RebateSchema = new Schema({
 		default: '',
 		trim: true
 	},
+	// affiliate: {
+	// 	type: String,
+	// 	default: '',
+	// 	required: 'Please fill Rebate Affilate',
+	// 	trim: true
+	// },
+	// category: {
+	// 	type: String,
+	// 	default: '',
+	// 	required: 'Please select category',
+	// 	trim: true
+	// },
+	//
 	affiliate: {
-		type: String,
-		default: '',
-		required: 'Please fill Rebate Affilate',
-		trim: true
-	},
+	type: Schema.Types.ObjectId,
+	ref: 'Affiliate',
+	//, required: 'invalid category' // TODO: make tests pass valid category
+	required: 'Please select category',
+},
 	category: {
-		type: String,
-		default: '',
-		required: 'Please select category',
-		trim: true
-	},
+	type: Schema.Types.ObjectId,
+	ref: 'Category',
+	//, required: 'invalid category' // TODO: make tests pass valid category
+	required: 'Please select category',
+},
+
 	link: {
 		type: String,
 		default: '',
