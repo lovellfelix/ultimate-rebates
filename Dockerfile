@@ -1,11 +1,10 @@
-FROM node:slim
+FROM node:latest
 
 MAINTAINER Lovell Felix, hello@lovellfelix.com
 
 WORKDIR /home/mean
 
 # Install Mean.JS Prerequisites
-RUN npm install -g gulp-cli
 RUN npm install -g bower
 
 # Install Mean.JS packages
@@ -28,5 +27,5 @@ VOLUME ["/home/mean"]
 
 # Port 3000 for server
 # Port 35729 for livereload
-EXPOSE 3000 35729
-CMD ["grunt"]
+EXPOSE 3000
+CMD ["gulp"]
