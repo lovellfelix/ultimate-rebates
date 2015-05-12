@@ -5,11 +5,11 @@
   float: left;
 }
 .main-logo__link {
+  font-family: 'Aguafina Script', cursive;
   display: block;
-  padding: 6px 6px;
-  border-radius: 2px;
-  font-size: 24px;
-  font-size: 1.5rem;
+  padding: 20px 0;
+  font-size: 36px;
+  color: $darkPrimaryColor !important;
 }
 .main-logo__link img {
   display: block;
