@@ -73,7 +73,10 @@ exports.delete = function(req, res) {
 /**
  * List of Rebates
  */
-exports.list = function(req, res) { Rebate.find().sort('-created').populate('user', 'displayName').exec(function(err, rebates) {
+exports.list = function(req, res) { Rebate.find().sort('-created').populate('user', 'displayName')
+																																	.populate('affiliate', 'name')
+																																	.populate('category', 'name')
+																																	.exec(function(err, rebates) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -88,8 +91,9 @@ exports.list = function(req, res) { Rebate.find().sort('-created').populate('use
  * Rebate middleware
  */
 exports.rebateByID = function(req, res, next, id) { Rebate.findById(id).populate('user', 'displayName')
-																										.populate('affiliate', 'name')
-																										.populate('category', 'name').exec(function(err, rebate) {
+																										.populate('affiliates', 'name')
+																										.populate('category', 'name')
+																										.exec(function(err, rebate) {
 		if (err) return next(err);
 		if (! rebate) return next(new Error('Failed to load Rebate ' + id));
 		req.rebate = rebate ;

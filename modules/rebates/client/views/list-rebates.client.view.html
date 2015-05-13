@@ -10,7 +10,7 @@
    <!-- <img ng-src="http://images.sahcdn.com/images/merchantlogos/travelocity.jpg" class="img-thumbnail user-profile-picture" alt="{{item.who}}" /> -->
    <div class="md-list-item-text">
      <h3><a data-ng-href="/#!/rebates/{{rebate._id}}">{{ rebate.title }}</a></h3>
-     <h4>{{ rebate.affiliates }}</h4>
+     <h4>{{ rebate.affiliate.name }}</h4>
      <p>{{ rebate.caption }}</p>
 
      <span data-ng-bind="rebate.expire | date:'MM/dd/yyyy'"></span>

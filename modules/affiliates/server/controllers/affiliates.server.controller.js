@@ -73,7 +73,9 @@ exports.delete = function(req, res) {
 /**
  * List of Affiliates
  */
-exports.list = function(req, res) { Affiliate.find().sort('-created').populate('user', 'displayName').exec(function(err, affiliates) {
+exports.list = function(req, res) { Affiliate.find().sort('-created').populate('user', 'displayName')
+																																		 .populate('rebate', 'title')
+																																			.exec(function(err, affiliates) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)

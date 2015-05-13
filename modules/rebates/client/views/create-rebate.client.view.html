@@ -22,9 +22,9 @@
             <div class="form-group">
               <label class="col-sm-2 control-label" for="textinput">Affiliate</label>
               <div class="col-sm-4">
-                <!-- <input type="text"  data-ng-model="affiliate" typeahead="affiliate.name for affiliate in affiliates | filter:$viewValue | limitTo:8" class="form-control" placeholder="Affiliate Name" required> -->
+                <input type="text" data-ng-model="affiliate" typeahead="item._id as item.name for item in affiliates | filter:$viewValue | limitTo:8" class="form-control" placeholder="Affiliate Name" required>
 
-                <select data-ng-model="affiliate" class="form-control" id="category" ng-options="item._id as item.name for item in affiliates" placeholder="Category" required></select>
+                <!-- <select data-ng-model="affiliate" class="form-control" id="category" ng-options="item._id as item.name for item in affiliates" placeholder="Category" required></select> -->
 
               </div>
 

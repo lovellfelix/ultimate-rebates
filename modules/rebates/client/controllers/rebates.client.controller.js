@@ -7,7 +7,6 @@ angular.module('rebates').controller('RebatesController', ['$scope', '$statePara
 		$scope.affiliates = Affiliates.query();
 		$scope.categories = Categories.query();
 
-
 		// Create new Rebate
 		$scope.create = function() {
 			// Create new Rebate object

@@ -57,9 +57,14 @@ angular.module('categories').controller('CategoriesController', ['$scope', '$sta
 
 		// Find existing Category
 		$scope.findOne = function() {
-			$scope.category = Categories.get({ 
+			$scope.category = Categories.get({
 				categoryId: $stateParams.categoryId
 			});
+		};
+
+		// Search for a category
+		$scope.categorySearch = function(category) {
+			$location.path('categories/' + category._id);
 		};
 	}
 ]);

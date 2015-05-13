@@ -57,9 +57,14 @@ angular.module('affiliates').controller('AffiliatesController', ['$scope', '$sta
 
 		// Find existing Affiliate
 		$scope.findOne = function() {
-			$scope.affiliate = Affiliates.get({ 
+			$scope.affiliate = Affiliates.get({
 				affiliateId: $stateParams.affiliateId
 			});
+		};
+
+		// Search for a category
+		$scope.affiliateSearch = function(category) {
+			$location.path('affiliates/' + category._id);
 		};
 	}
 ]);

@@ -6,9 +6,8 @@
         <div class="col-md-8 col-md-offset-2">
     		<h2></h2>
             <div id="custom-search-input">
-                <div class="input-group col-md-12" data-ng-controller="RebatesController">
-                    <input type="text" data-ng-init="affiliates()" data-ng-model="affiliate" typeahead="affiliate.name for affiliate in affiliates | filter:$viewValue | limitTo:8" class="form-control" placeholder="Search Stores">
-
+                <div class="input-group col-md-12" data-ng-controller="AffiliatesController" data-ng-init="find()">
+                    <input type="text" ng-model="search" typeahead="affiliate as affiliate.name for affiliate in affiliates | filter:$viewValue | limitTo:8" class="form-control" typeahead-on-select="affiliateSearch($item)" placeholder="Search 55,000+ Stores and Brands">
                     <span class="input-group-btn">
                         <button class="btn btn-info btn-lg" type="button">
                             <i class="glyphicon glyphicon-search"></i>
@@ -28,7 +27,6 @@
                     Carousel Product Cart Slider</h3>
             </div>
             <div class="col-md-3">
-                <!-- Controls -->
                 <div class="controls pull-right hidden-xs">
                     <a class="left fa fa-chevron-left btn btn-success" href="#carousel-example"
                         data-slide="prev"></a><a class="right fa fa-chevron-right btn btn-success" href="#carousel-example"
@@ -37,7 +35,6 @@
             </div>
         </div>
         <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
-            <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
                     <div class="row">
