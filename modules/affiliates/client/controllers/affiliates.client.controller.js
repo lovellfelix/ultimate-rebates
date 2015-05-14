@@ -67,25 +67,6 @@ angular.module('affiliates').controller('AffiliatesController', ['$scope', '$sta
 			$location.path('affiliates/' + affiliate._id);
 		};
 
-		// $scope.query = "554c30a7b2202f5266d37ef0";
-		$scope.query = '';
-
-		$scope.filter = function(affiliate) {
-			// return "554c30a7b2202f5266d37ef0"
-			$scope.query = affiliate._id;
-			};
-
-		$scope.rebates = function() {
-
-		$scope.rebates = Rebates.query();
-
-		$scope.query = "554c30a7b2202f5266d37ef0";
-
-
-
-
-		}
-
 
 
 	}
