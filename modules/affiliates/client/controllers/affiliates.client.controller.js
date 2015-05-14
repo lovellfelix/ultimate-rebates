@@ -1,8 +1,8 @@
 'use strict';
 
 // Affiliates controller
-angular.module('affiliates').controller('AffiliatesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Affiliates',
-	function($scope, $stateParams, $location, Authentication, Affiliates ) {
+angular.module('affiliates').controller('AffiliatesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Affiliates', 'Rebates',
+	function($scope, $stateParams, $location, Authentication, Affiliates, Rebates ) {
 		$scope.authentication = Authentication;
 
 		// Create new Affiliate
@@ -63,8 +63,30 @@ angular.module('affiliates').controller('AffiliatesController', ['$scope', '$sta
 		};
 
 		// Search for a category
-		$scope.affiliateSearch = function(category) {
-			$location.path('affiliates/' + category._id);
+		$scope.affiliateSearch = function(affiliate) {
+			$location.path('affiliates/' + affiliate._id);
 		};
+
+		// $scope.query = "554c30a7b2202f5266d37ef0";
+		$scope.query = '';
+
+		$scope.filter = function(affiliate) {
+			// return "554c30a7b2202f5266d37ef0"
+			$scope.query = affiliate._id;
+			};
+
+		$scope.rebates = function() {
+
+		$scope.rebates = Rebates.query();
+
+		$scope.query = "554c30a7b2202f5266d37ef0";
+
+
+
+
+		}
+
+
+
 	}
 ]);

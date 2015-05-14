@@ -18,4 +18,33 @@
 			<span data-ng-bind="affiliate.user.displayName"></span>
 		</em>
 	</small>
+
+
+</section>
+
+<!-- <section data-ng-controller="AffiliatesController" data-ng-init="find()">
+
+	<h1 data-ng-bind="affiliate.name"></h1>
+
+
+</section> -->
+
+<br />
+<section data-ng-controller="AffiliatesController" data-ng-init="rebates()">
+
+    <div class="list-group">
+        <a data-ng-repeat="rebate in rebates | filter:query" data-ng-href="/#!/rebates/{{rebate._id}}" class="list-group-item">
+					<h4 class="list-group-item-heading" data-ng-bind="rebate.title"></h4>
+
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="rebate.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="rebate.user.displayName"></span>
+			</small>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!affiliates.$resolved || affiliates.length">
+    	No Affiliates yet, why don't you <a href="/#!/affiliates/create">create one</a>?
+    </div>
 </section>
